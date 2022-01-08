@@ -1,3 +1,7 @@
+# Necessary modules:
+-pygame
+-math
+
 # Inverse_Kinematics_python
 Simple program that draws a moving tentacle using inverse kinematics
 
