@@ -4,12 +4,13 @@ from section import Section
 
 WIDTH, HEIGHT  = 700, 500
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Inverse kinematics')
 
 white = (255,255,255)
 black = (0,0,0)
 
-L = 8       #lenght of one section
-N = 50      #number of sections
+L = 5       #lenght of one section
+N = 60      #number of sections
 
 
 def get_angle(xa, ya, xb, yb):
@@ -18,6 +19,8 @@ def get_angle(xa, ya, xb, yb):
         phi = math.atan(-(xb - xa) / (yb - ya)) - math.pi / 2
     elif ya - yb > 0:
         phi = math.atan(-(xb - xa) / (yb - ya)) + math.pi / 2
+    elif ya - yb == 0:
+        phi = 0
 
     return phi
 
@@ -54,10 +57,7 @@ def run():
                 prev_y = section.ya
 
             else:
-                try:
-                    section.phi = get_angle(prev_x, prev_y, section.xa, section.ya)
-                except:
-                    pass
+                section.phi = get_angle(prev_x, prev_y, section.xa, section.ya)
                 section.update()
 
                 section.xa += (prev_x - section.xb)
@@ -84,12 +84,13 @@ def run():
 
         draw_window()
 
-#CREATE SECTIONS
-sections = []
-for i in range (N):
-    new_section = Section(L+L*(N-i), HEIGHT/2, L, 0, int(1+i/5))
-    new_section.update()
-    sections.append(new_section)
 
 if __name__ == '__main__':
+    # CREATE SECTIONS
+    sections = []
+    for i in range(N):
+        new_section = Section(L + L * (N - i), HEIGHT / 2, L, 0.1, int(1 + i / 5))
+        new_section.update()
+        sections.append(new_section)
+
     run()
