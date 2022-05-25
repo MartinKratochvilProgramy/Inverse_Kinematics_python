@@ -10,7 +10,7 @@ white = (255,255,255)
 black = (0,0,0)
 
 L = 5       #lenght of one section
-N = 60      #number of sections
+N = 81      #number of sections
 
 
 def get_angle(xa, ya, xb, yb):
