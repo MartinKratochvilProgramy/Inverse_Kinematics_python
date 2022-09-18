@@ -1,7 +1,7 @@
 # How to run:
 Install require packages by runing
 ```
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 # How it works?
