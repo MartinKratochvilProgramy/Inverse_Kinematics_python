@@ -1,8 +1,8 @@
 # How to run:
 Install require packages by runing
-'''
+```
 pip install -r requirements
-'''
+```
 
 # How it works?
 Run the program by opening and running main.py, file section.py contains class for every tentacle section.
